@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name         = 'ordered-active-record'
   s.summary      = 'Lightweight ordering of models in ActiveRecord 3 or higher'
   s.description  = 'This gem allows you to have ordered models. It is like the old acts_as_list, but very lightweight and with an optimized SQL syntax.'
-  s.version      = '0.9.8'
+  s.version      = '0.9.81'
   s.required_ruby_version = '>= 1.9.3'
 
   s.author       = 'Walter Horstman'
