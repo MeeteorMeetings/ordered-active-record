@@ -36,8 +36,11 @@ module OrderedActiveRecord
       end
 
       def scope_for(name, options)
-        Array.wrap(self.send :scope_symbol || options[:scope]).inject(self.class.base_class.where("#{name} IS NOT NULL")) do |scope, column|
-          scope.where(column => self.send(column))
+        scope = if self.respond_to? :ar_scope
+          self.send :ar_scope
+        else
+          scope_column = self.send :scope_symbol || options[:scope]
+          self.class.base_class.where("#{scope_column} IS NOT NULL").where(scope_column => self.send(scope_column))
         end
       end
     end
